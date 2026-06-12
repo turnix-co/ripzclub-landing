@@ -47,29 +47,31 @@ export function SocialLinksSection() {
           </a>
         </div>
         <div className="[transform:rotate(1.5deg)_translateY(-2px)]">
-          <a href="[DISCORD_URL]" target="_blank" rel="noopener" className="social-link">
+          <a href="https://discord.gg/W75rRdqCz4" target="_blank" rel="noopener" className="social-link">
             <svg viewBox="0 0 48 48" className="size-[38px] shrink-0"><path d="M14 12 C20 9 28 9 34 12 C39 19 41 27 40 34 C36 38 31 39 29 39 L27.5 35.5 C31 34.6 33 33 33 33 C28 36 20 36 15 33 C15 33 17 34.6 20.5 35.5 L19 39 C17 39 12 38 8 34 C7 27 9 19 14 12 Z" fill="currentColor" /><circle cx="18.5" cy="26" r="3.1" fill="#FFFFFF" /><circle cx="29.5" cy="26" r="3.1" fill="#FFFFFF" /></svg>
             DISCORD
           </a>
         </div>
         <div className="relative [transform:rotate(-1deg)_translateY(-4px)]">
           <div className="pointer-events-none absolute -right-[9px] -top-[11px] z-[2] rotate-[7deg] whitespace-nowrap rounded-[3px] bg-ripz px-2 py-1 font-grotesk text-[9px] font-bold tracking-[.18em] text-paper shadow-[2px_2px_0_#0A0A0C]">THE STREAM</div>
-          <a href="[EBAY_LIVE_URL]" target="_blank" rel="noopener" className="social-link">
+          <a href="https://www.ebay.com.au/ebaylive/sellers/uyrpxfoktc2" target="_blank" rel="noopener" className="social-link">
             <svg viewBox="0 0 48 48" className="size-[38px] shrink-0"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" strokeWidth="3" /><path d="M20 16.5 L33 24 L20 31.5 Z" fill="currentColor" /></svg>
             EBAY LIVE
           </a>
         </div>
-        <div className="[transform:rotate(-1.5deg)_translateY(2px)]">
-          <a href="[INSTAGRAM_URL]" target="_blank" rel="noopener" className="social-link">
+        <div className="relative [transform:rotate(-1.5deg)_translateY(2px)]">
+          <div className="pointer-events-none absolute -right-[9px] -top-[11px] z-[2] rotate-[7deg] whitespace-nowrap rounded-[3px] bg-ink px-2 py-1 font-grotesk text-[9px] font-bold tracking-[.18em] text-paper shadow-[2px_2px_0_#E8132B]">SOON</div>
+          <div className="social-link pointer-events-none opacity-55">
             <svg viewBox="0 0 48 48" className="size-[38px] shrink-0"><rect x="8" y="8" width="32" height="32" rx="9" fill="none" stroke="currentColor" strokeWidth="3" /><circle cx="24" cy="24" r="7.5" fill="none" stroke="currentColor" strokeWidth="3" /><circle cx="33.4" cy="14.6" r="2.5" fill="currentColor" /></svg>
             INSTAGRAM
-          </a>
+          </div>
         </div>
-        <div className="[transform:rotate(2.5deg)_translateY(4px)]">
-          <a href="[TIKTOK_URL]" target="_blank" rel="noopener" className="social-link">
+        <div className="relative [transform:rotate(2.5deg)_translateY(4px)]">
+          <div className="pointer-events-none absolute -right-[9px] -top-[11px] z-[2] rotate-[7deg] whitespace-nowrap rounded-[3px] bg-ink px-2 py-1 font-grotesk text-[9px] font-bold tracking-[.18em] text-paper shadow-[2px_2px_0_#E8132B]">SOON</div>
+          <div className="social-link pointer-events-none opacity-55">
             <svg viewBox="0 0 48 48" className="size-[38px] shrink-0"><path d="M27 8 L27 30.5 A7.5 7.5 0 1 1 21 23.2 L21 17.6 A13 13 0 1 0 33 30.5 L33 17 A11 11 0 0 0 40 19.6 L40 13.8 A9.5 9.5 0 0 1 33 8 Z" fill="currentColor" /></svg>
             TIKTOK
-          </a>
+          </div>
         </div>
       </div>
     </section>

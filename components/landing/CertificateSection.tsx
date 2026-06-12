@@ -184,10 +184,8 @@ export function CertificateSection() {
         </div>
         <div className="flex flex-wrap items-center gap-[22px]">
           <a href="https://ripzclub.com" target="_blank" rel="noopener" className="footer-link">Website</a>
-          <a href="[DISCORD_URL]" target="_blank" rel="noopener" className="footer-link">Discord</a>
-          <a href="[EBAY_LIVE_URL]" target="_blank" rel="noopener" className="footer-link">eBay Live</a>
-          <a href="[INSTAGRAM_URL]" target="_blank" rel="noopener" className="footer-link">Instagram</a>
-          <a href="[TIKTOK_URL]" target="_blank" rel="noopener" className="footer-link">TikTok</a>
+          <a href="https://discord.gg/W75rRdqCz4" target="_blank" rel="noopener" className="footer-link">Discord</a>
+          <a href="https://www.ebay.com.au/ebaylive/sellers/uyrpxfoktc2" target="_blank" rel="noopener" className="footer-link">eBay Live</a>
         </div>
       </div>
     </section>
