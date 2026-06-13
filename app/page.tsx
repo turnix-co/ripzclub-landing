@@ -1,13 +1,13 @@
-import { HeroSection } from "@/components/landing/HeroSection"
-import { SocialLinksSection } from "@/components/landing/SocialLinksSection"
-import { CertificateSection } from "@/components/landing/CertificateSection"
+import { Loader } from "@/components/landing/Loader"
+import { Billboard } from "@/components/landing/Billboard"
+import { GrainOverlay } from "@/components/landing/GrainOverlay"
 
 export default function Page() {
   return (
-    <main>
-      <HeroSection />
-      <SocialLinksSection />
-      <CertificateSection />
-    </main>
+    <div className="relative bg-ink text-paper [overflow-x:clip]">
+      <Loader />
+      <Billboard />
+      <GrainOverlay />
+    </div>
   )
 }

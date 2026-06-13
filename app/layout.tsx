@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Anton, Space_Grotesk, Permanent_Marker } from "next/font/google"
+import { Anton, Space_Grotesk, Permanent_Marker, Luckiest_Guy } from "next/font/google"
 import "./globals.css"
 
 const anton = Anton({
@@ -23,8 +23,15 @@ const permanentMarker = Permanent_Marker({
   display: "swap",
 })
 
+const luckiestGuy = Luckiest_Guy({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-luckiest-guy",
+  display: "swap",
+})
+
 export const metadata: Metadata = {
-  title: "RipzClub — Every Pack. One Graded Hit.",
+  title: "KNIXRIPZ × RIPZCLUB — Every Pack. One Graded Hit.",
   description: "Certified slabs. Instant reveals. RipzSafe 80% floor. Australia's premier trading card rip club.",
 }
 
@@ -34,7 +41,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${anton.variable} ${spaceGrotesk.variable} ${permanentMarker.variable}`}>
+    <html
+      lang="en"
+      className={`${anton.variable} ${spaceGrotesk.variable} ${permanentMarker.variable} ${luckiestGuy.variable}`}
+    >
       <body>{children}</body>
     </html>
   )

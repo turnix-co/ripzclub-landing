@@ -9,6 +9,7 @@
   --font-display: var(--font-anton), Anton, sans-serif;
   --font-grotesk: var(--font-space-grotesk), "Space Grotesk", sans-serif;
   --font-marker: var(--font-permanent-marker), "Permanent Marker", cursive;
+  --font-luckiest: var(--font-luckiest-guy), "Luckiest Guy", cursive;
 }
 
 html, body {
@@ -18,65 +19,28 @@ html, body {
   color: #F5F5F4;
 }
 
+/* Wordmark letters rise into place */
 @keyframes rise {
   0% { transform: translateY(70px); opacity: 0; }
   70% { transform: translateY(-7px); opacity: 1; }
   100% { transform: translateY(0); opacity: 1; }
 }
 
-@keyframes auroraDrift {
-  0%, 100% { transform: translate(-8%, -4%) scale(1); }
-  50% { transform: translate(12%, 9%) scale(1.18); }
-}
-
-@keyframes floaty {
-  0%, 100% { transform: translateY(-9px); }
-  50% { transform: translateY(9px); }
-}
-
-@keyframes wipeIn {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0 0 0 0); }
-}
-
-@keyframes dash {
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes loadBar {
-  0% { transform: translateX(-110%); }
-  100% { transform: translateX(360%); }
-}
-
-@keyframes scrollDrop {
-  0% { transform: translateY(-100%); opacity: 0; }
-  30% { opacity: 1; }
-  70% { opacity: 1; }
-  100% { transform: translateY(100%); opacity: 0; }
-}
-
+/* Loader wordmark + LIVE dot heartbeat */
 @keyframes zPulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.14); opacity: .82; }
 }
 
-@keyframes glareSpin {
-  0% { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
+/* Loader progress sweep */
+@keyframes loadBar {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(360%); }
 }
 
-@keyframes flarePulse {
-  0% { opacity: 0; transform: scale(.35) rotate(0deg); }
-  9% { opacity: 1; transform: scale(1) rotate(8deg); }
-  22% { opacity: 0; transform: scale(1.45) rotate(14deg); }
-  100% { opacity: 0; transform: scale(.35) rotate(0deg); }
-}
-
-@keyframes emberUp {
-  0% { transform: translateY(4vh); opacity: 0; }
-  12% { opacity: .55; }
-  80% { opacity: .25; }
-  100% { transform: translateY(-58vh); opacity: 0; }
+/* "COMMUNITY" hand-drawn circle */
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -88,6 +52,7 @@ html, body {
   }
 }
 
+/* Social entry cards — white tile that lifts into a blue offset shadow on hover */
 .social-link {
   display: flex;
   flex-direction: column;
@@ -100,32 +65,33 @@ html, body {
   background: #FFFFFF;
   border: 1.5px solid #0A0A0C;
   border-radius: 14px;
-  box-shadow: 5px 5px 0 #0A0A0C;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .55);
   color: #0A0A0C;
   text-decoration: none;
   font-family: var(--font-display);
   font-size: 16px;
   letter-spacing: .1em;
-  transition: transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, color .3s ease, border-color .3s ease;
+  transition: transform .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s ease, color .3s ease, border-color .3s ease;
 }
 
 .social-link:hover {
   transform: translate(-3px, -3px);
-  box-shadow: 9px 9px 0 #E8132B;
-  color: #E8132B;
-  border-color: #E8132B;
+  box-shadow: 9px 9px 0 #2E7BE6;
+  color: #1E6BD8;
+  border-color: #2E7BE6;
 }
 
+/* Footer text links */
 .footer-link {
   font-family: var(--font-grotesk);
   font-size: .68rem;
   letter-spacing: .18em;
   text-transform: uppercase;
-  color: rgba(245,245,244,.6);
+  color: rgba(245, 245, 244, .6);
   text-decoration: none;
   transition: color .25s;
 }
 
 .footer-link:hover {
-  color: #FF2D43;
+  color: #46A6F5;
 }
