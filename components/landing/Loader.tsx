@@ -50,7 +50,7 @@ export function Loader() {
   return (
     <div
       ref={ref}
-      className="fixed inset-0 z-[200] flex flex-col items-center justify-center gap-[30px]"
+      className="loader-failopen fixed inset-0 z-[200] flex flex-col items-center justify-center gap-[30px]"
       style={{ background: "linear-gradient(160deg,#141019 0%,#0A0B0E 55%,#07080B 100%)" }}
     >
       <Wordmark variant="loader" />

@@ -19,17 +19,30 @@ html, body {
   color: #F5F5F4;
 }
 
-/* Wordmark letters rise into place */
+/* Wordmark letters rise into place.
+   Uses the `translate` property (not `transform`) so the per-word
+   skewX()/rotate() set in JSX survives the entrance animation. */
 @keyframes rise {
-  0% { transform: translateY(70px); opacity: 0; }
-  70% { transform: translateY(-7px); opacity: 1; }
-  100% { transform: translateY(0); opacity: 1; }
+  0% { translate: 0 70px; opacity: 0; }
+  70% { translate: 0 -7px; opacity: 1; }
+  100% { translate: 0 0; opacity: 1; }
 }
 
 /* Loader wordmark + LIVE dot heartbeat */
 @keyframes zPulse {
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.14); opacity: .82; }
+}
+
+/* Fail-open backstop for the loader. The JS in Loader.tsx hides it within ~1s of
+   the page load; this CSS dismisses it even if JS never runs (hydration failure,
+   version-skewed cache, a chunk that dies on one device) so it can NEVER cover
+   the page forever. Fires well after the JS paths, so a healthy load is unaffected. */
+@keyframes loaderFailOpen {
+  to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+.loader-failopen {
+  animation: loaderFailOpen .5s ease 5s forwards;
 }
 
 /* Loader progress sweep */
