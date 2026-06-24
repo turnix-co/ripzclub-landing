@@ -30,81 +30,80 @@ const clipFill = (fill: string, stroke: string): CSSProperties => ({
 })
 
 /**
- * The KNIXRIPZ × RIPZCLUB wordmark: a skewed gold half, a rotated outlined "X",
- * and a skewed blue half. Shared between the loader and the hero billboard.
+ * The RIPZCLUB •LIVE wordmark: a skewed blue "RIPZCLUB", a pulsing red dot, and a
+ * skewed gold "LIVE", the dot+LIVE tilted as a unit. Shared between the loader and
+ * the hero billboard.
  *
- * Each gradient word is a wrapper (skew + drop-shadow + entrance) around an inner
- * span that does the gradient clip — keeping effects off the clipped text is what
- * stops the fill from chopping in half on mobile.
+ * Every gradient word is a wrapper (skew + drop-shadow + entrance) around an inner
+ * span that does only the clip — keeping effects off the clipped text is what stops
+ * the fill from chopping in half on mobile.
  */
 export function Wordmark({ variant = "hero" }: WordmarkProps) {
   const hero = variant === "hero"
   const skew = hero ? "skewX(-6deg)" : "skewX(-7deg)"
-  const sideSize = hero ? "min(10vw, 96px)" : "clamp(26px, 5vw, 54px)"
-  const xSize = hero ? "min(10vw, 100px)" : "clamp(26px, 5vw, 54px)"
-  const goldStroke = hero ? "clamp(1.5px,.3vw,3.5px) #2A1402" : "1.5px #2A1402"
   const blueStroke = hero ? "clamp(1.5px,.3vw,3.5px) #06122c" : "1.5px #06122c"
+  const goldStroke = hero ? "clamp(1.3px,.26vw,3px) #2A1402" : "1.3px #2A1402"
 
   return (
     <div
-      className="relative z-[4] flex items-center justify-center font-luckiest leading-[.82]"
+      className="relative z-[4] flex flex-wrap items-center justify-center font-luckiest leading-[.82]"
       style={{
-        gap: hero ? "min(2vw, 22px)" : undefined,
+        fontSize: hero ? undefined : "clamp(26px, 5vw, 54px)",
+        gap: hero ? "min(2.2vw, 26px)" : ".22em",
         animation: hero ? undefined : "zPulse 1.4s ease-in-out infinite",
       }}
     >
-      {/* GOLD — wrapper owns skew + shadow + entrance; inner span owns the clip */}
+      {/* RIPZCLUB — blue. Wrapper owns skew + shadow + entrance; inner owns the clip. */}
       <span
         style={{
           display: "inline-block",
           lineHeight: 1,
-          fontSize: sideSize,
-          transform: skew,
-          filter: hero
-            ? "drop-shadow(0 3px 0 rgba(40,18,2,.55)) drop-shadow(0 9px 11px rgba(0,0,0,.22))"
-            : undefined,
-          animation: hero ? "rise .7s cubic-bezier(.22,1,.36,1) .08s both" : undefined,
-        }}
-      >
-        <span style={clipFill(GOLD_FILL, goldStroke)}>KNIXRIPZ</span>
-      </span>
-
-      {/* X — solid white fill, so filter + stroke can stay on the same element */}
-      <span
-        className="relative z-[3]"
-        style={{
-          display: "inline-block",
-          lineHeight: 1,
-          fontSize: xSize,
-          color: "#FFFFFF",
-          WebkitTextFillColor: "#FFFFFF",
-          WebkitTextStroke: hero ? "clamp(1.8px,.36vw,4.5px) #16233f" : "1.6px #16233f",
-          paintOrder: "stroke fill",
-          transform: "rotate(-8deg)",
-          margin: hero ? undefined : "0 -.05em",
-          filter: hero
-            ? "drop-shadow(0 0 16px rgba(255,255,255,.7)) drop-shadow(0 6px 8px rgba(10,20,40,.42))"
-            : "drop-shadow(0 0 12px rgba(255,255,255,.55))",
-          animation: hero ? "rise .7s cubic-bezier(.22,1,.36,1) .2s both" : undefined,
-        }}
-      >
-        X
-      </span>
-
-      {/* BLUE */}
-      <span
-        style={{
-          display: "inline-block",
-          lineHeight: 1,
-          fontSize: sideSize,
+          fontSize: hero ? "min(11vw, 112px)" : undefined,
           transform: skew,
           filter: hero
             ? "drop-shadow(0 3px 0 rgba(2,10,30,.55)) drop-shadow(0 9px 11px rgba(0,0,0,.22))"
             : undefined,
-          animation: hero ? "rise .7s cubic-bezier(.22,1,.36,1) .32s both" : undefined,
+          animation: hero ? "rise .7s cubic-bezier(.22,1,.36,1) .08s both" : undefined,
         }}
       >
         <span style={clipFill(BLUE_FILL, blueStroke)}>RIPZCLUB</span>
+      </span>
+
+      {/* •LIVE — red dot + gold LIVE, the whole group tilted */}
+      <span
+        className="relative z-[3]"
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: ".16em",
+          lineHeight: 1,
+          fontSize: hero ? "min(7.4vw, 72px)" : ".6em",
+          transform: "rotate(-6deg)",
+          animation: hero ? "rise .7s cubic-bezier(.22,1,.36,1) .24s both" : undefined,
+        }}
+      >
+        <span
+          aria-hidden="true"
+          style={{
+            width: hero ? ".38em" : ".42em",
+            height: hero ? ".38em" : ".42em",
+            borderRadius: "50%",
+            background: "#E8132B",
+            boxShadow: hero ? "0 0 18px rgba(232,19,43,.8)" : "0 0 12px rgba(232,19,43,.7)",
+            animation: "zPulse 1.4s ease-in-out infinite",
+          }}
+        />
+        {/* LIVE wrapper owns skew + shadow; inner owns the clip */}
+        <span
+          style={{
+            display: "inline-block",
+            lineHeight: 1,
+            transform: skew,
+            filter: hero ? "drop-shadow(0 3px 0 rgba(40,18,2,.5))" : undefined,
+          }}
+        >
+          <span style={clipFill(GOLD_FILL, goldStroke)}>LIVE</span>
+        </span>
       </span>
     </div>
   )

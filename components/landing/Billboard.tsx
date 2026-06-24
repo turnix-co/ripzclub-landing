@@ -1,14 +1,27 @@
 import { Wordmark } from "./Wordmark"
+import { ShowSchedule } from "./ShowSchedule"
 import { SocialCards } from "./SocialCards"
+import { AlertSignup } from "./AlertSignup"
 import { SiteFooter } from "./SiteFooter"
 
 const EBAY_LIVE = "https://www.ebay.com.au/ebaylive/sellers/uyrpxfoktc2"
 const SITE = "https://ripzclub.com"
 
+function Divider() {
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none relative z-[4] mt-[clamp(48px,8vh,92px)] flex w-[min(340px,70vw)] items-center gap-3"
+    >
+      <div className="h-px flex-1 bg-[linear-gradient(90deg,transparent,rgba(245,245,244,.22)_50%,transparent)]" />
+    </div>
+  )
+}
+
 /**
- * The single-screen "billboard": layered gradient/ray background, the
- * KNIXRIPZ × RIPZCLUB wordmark, headline + CTAs, the community block with
- * social cards, and the closing footer.
+ * The single-screen "billboard": layered gradient/ray background, the RIPZCLUB
+ * •LIVE wordmark, headline + CTAs, the weekly show schedule, the community block
+ * with social cards, the drop-alert signup, and the closing footer.
  */
 export function Billboard() {
   return (
@@ -134,15 +147,10 @@ export function Billboard() {
         </div>
       </div>
 
-      {/* ── Divider ───────────────────────────────────────────────────── */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none relative z-[4] mt-[clamp(48px,8vh,92px)] flex w-[min(340px,70vw)] items-center gap-3"
-      >
-        <div className="h-px flex-1 bg-[linear-gradient(90deg,transparent,rgba(245,245,244,.22))]" />
-        <div className="size-1.5 shrink-0 rotate-45 border border-paper/35" />
-        <div className="h-px flex-1 bg-[linear-gradient(270deg,transparent,rgba(245,245,244,.22))]" />
-      </div>
+      {/* ── Show schedule ─────────────────────────────────────────────── */}
+      <ShowSchedule />
+
+      <Divider />
 
       {/* ── Community block + social cards ────────────────────────────── */}
       <div className="relative z-[4] mt-[clamp(36px,6vh,64px)] flex w-full flex-col items-center gap-[38px]">
@@ -174,6 +182,11 @@ export function Billboard() {
 
         <SocialCards />
       </div>
+
+      <Divider />
+
+      {/* ── Drop-alert signup ─────────────────────────────────────────── */}
+      <AlertSignup />
 
       {/* ── Footer ────────────────────────────────────────────────────── */}
       <SiteFooter />

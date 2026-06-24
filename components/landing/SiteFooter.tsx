@@ -83,7 +83,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="relative z-[2] mx-auto mt-[22px] max-w-[1320px] text-center font-grotesk text-[.58rem] uppercase tracking-[.14em] text-paper/30">
-        © 2026 KNIXRIPZ × RIPZCLUB · Owned &amp; ripped in Australia · 18+ collect responsibly
+        © 2026 RIPZCLUB Live · Owned &amp; ripped in Australia · 18+ collect responsibly
       </div>
     </div>
   )

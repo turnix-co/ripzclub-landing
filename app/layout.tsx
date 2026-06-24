@@ -31,7 +31,7 @@ const luckiestGuy = Luckiest_Guy({
 })
 
 export const metadata: Metadata = {
-  title: "KNIXRIPZ × RIPZCLUB — Every Pack. One Graded Hit.",
+  title: "RipzClub Live — Every Pack. One Graded Hit.",
   description: "Certified slabs. Instant reveals. RipzSafe 80% floor. Australia's premier trading card rip club.",
 }
 
