@@ -110,17 +110,17 @@ export function AlertSignup() {
               />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/pokemon-box.png"
-                alt="Sealed Pokémon Sun & Moon Team Up booster box"
+                src="/prize-box.png"
+                alt="Sealed premium trading card booster box"
                 className="relative w-[min(300px,76%)] [filter:drop-shadow(0_22px_30px_rgba(0,0,0,.5))]"
               />
             </div>
 
             <h3 className="mb-1.5 font-poppins text-[clamp(18px,2.2vw,23px)] font-bold text-paper">
-              Pokémon TCG: Sun &amp; Moon Team Up
+              Premium Mystery Box
             </h3>
             <p className="mb-4 font-oswald text-[13px] tracking-[.06em] text-paper/60">
-              Sealed Booster Box · 36 Packs
+              Sealed Booster Pack · Graded Hit Inside
             </p>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-ripz/50 bg-ripz/[.16] px-3.5 py-[7px] font-oswald text-[11px] font-semibold uppercase tracking-[.18em] text-[#ff5c70]">
               <span className="size-1.5 rounded-full bg-[#ff5c70]" />
