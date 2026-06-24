@@ -95,28 +95,44 @@ export function Billboard() {
         }}
       />
 
-      {/* ── Logo ──────────────────────────────────────────────────────── */}
-      <div className="absolute left-[max(3vw,18px)] top-[max(3vh,16px)] z-[6]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo.svg"
-          alt="RipzClub"
-          className="block h-[min(7vh,52px)] [filter:brightness(0)_invert(1)]"
-        />
-      </div>
-
       {/* ── Wordmark ──────────────────────────────────────────────────── */}
       <Wordmark variant="hero" />
 
-      {/* ── Headline + subline ────────────────────────────────────────── */}
-      <div className="relative z-[4] mt-[clamp(34px,5.5vh,56px)] max-w-[92vw] text-center">
-        <div className="font-display text-[clamp(17px,2.8vw,36px)] leading-none tracking-[.03em] text-paper whitespace-nowrap">
-          EVERY PACK. ONE GRADED HIT.{" "}
-          <span className="inline-block translate-y-[-1px] rotate-[-3deg] whitespace-nowrap font-marker text-[.82em] text-[#FF9E2C] [text-shadow:0_0_16px_rgba(255,158,44,.35)]">
-            guaranteed.
+      {/* ── Featuring + subline ───────────────────────────────────────── */}
+      <div className="relative z-[4] mt-[clamp(30px,5vh,52px)] max-w-[92vw] text-center">
+        {/* — FEATURING — small label with flanker dashes */}
+        <div className="flex items-center justify-center gap-3 font-grotesk text-[clamp(.62rem,1.2vw,.82rem)] uppercase tracking-[.34em] text-paper/55">
+          <span aria-hidden className="h-px w-[clamp(20px,3vw,36px)] bg-[linear-gradient(90deg,transparent,#FFB23E)]" />
+          Featuring
+          <span aria-hidden className="h-px w-[clamp(20px,3vw,36px)] bg-[linear-gradient(90deg,#FFB23E,transparent)]" />
+        </div>
+        {/* KNIXRIPZ — big gold block letters, matching the wordmark's LIVE */}
+        <div
+          className="mt-[clamp(8px,1.6vh,16px)] inline-block font-display text-[clamp(40px,7vw,84px)] leading-[.9] tracking-[.02em]"
+          style={{
+            transform: "skewX(-6deg)",
+            filter: "drop-shadow(0 3px 0 rgba(40,18,2,.5)) drop-shadow(0 9px 14px rgba(0,0,0,.3))",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-block",
+              lineHeight: 1,
+              backgroundImage: "linear-gradient(180deg,#FFE49A 0%,#FFB23E 40%,#F0631A 70%,#BE410B 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              color: "transparent",
+              WebkitTextStroke: "clamp(1.3px,.26vw,3px) #2A1402",
+              paintOrder: "stroke fill",
+              WebkitBoxDecorationBreak: "clone",
+              boxDecorationBreak: "clone",
+            }}
+          >
+            KNIXRIPZ
           </span>
         </div>
-        <div className="mt-5 font-grotesk text-[clamp(.6rem,1.1vw,.72rem)] uppercase tracking-[.22em] text-paper/62">
+        <div className="mt-[clamp(18px,3vh,28px)] font-grotesk text-[clamp(.6rem,1.1vw,.72rem)] uppercase tracking-[.22em] text-paper/62">
           Certified slabs. Instant reveals. RipzSafe 80% floor.
         </div>
       </div>
@@ -146,11 +162,6 @@ export function Billboard() {
           </a>
         </div>
       </div>
-
-      {/* ── Show schedule ─────────────────────────────────────────────── */}
-      <ShowSchedule />
-
-      <Divider />
 
       {/* ── Community block + social cards ────────────────────────────── */}
       <div className="relative z-[4] mt-[clamp(36px,6vh,64px)] flex w-full flex-col items-center gap-[38px]">
@@ -185,8 +196,13 @@ export function Billboard() {
 
       <Divider />
 
-      {/* ── Drop-alert signup ─────────────────────────────────────────── */}
+      {/* ── Win a prize / drop-alert signup ───────────────────────────── */}
       <AlertSignup />
+
+      <Divider />
+
+      {/* ── Show schedule ─────────────────────────────────────────────── */}
+      <ShowSchedule />
 
       {/* ── Footer ────────────────────────────────────────────────────── */}
       <SiteFooter />

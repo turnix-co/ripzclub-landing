@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Anton, Space_Grotesk, Permanent_Marker, Luckiest_Guy } from "next/font/google"
+import { Anton, Space_Grotesk, Permanent_Marker, Luckiest_Guy, Oswald, Poppins } from "next/font/google"
 import "./globals.css"
 
 const anton = Anton({
@@ -30,6 +30,20 @@ const luckiestGuy = Luckiest_Guy({
   display: "swap",
 })
 
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-oswald",
+  display: "swap",
+})
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+})
+
 export const metadata: Metadata = {
   title: "RipzClub Live — Every Pack. One Graded Hit.",
   description: "Certified slabs. Instant reveals. RipzSafe 80% floor. Australia's premier trading card rip club.",
@@ -43,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${anton.variable} ${spaceGrotesk.variable} ${permanentMarker.variable} ${luckiestGuy.variable}`}
+      className={`${anton.variable} ${spaceGrotesk.variable} ${permanentMarker.variable} ${luckiestGuy.variable} ${oswald.variable} ${poppins.variable}`}
     >
       <body>{children}</body>
     </html>
