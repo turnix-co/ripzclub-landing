@@ -16,9 +16,9 @@ export async function ShowSchedule() {
       className="relative z-[4] mt-[clamp(58px,9.5vh,104px)] flex w-full flex-col items-center"
     >
       <div className="text-center font-display text-[clamp(28px,3.2vw,48px)] tracking-[.04em] text-paper">
-        SHOW{" "}
+        LIVE{" "}
         <span className="relative inline-block text-paper">
-          SCHEDULE
+          TONIGHT
           <svg
             viewBox="0 0 100 44"
             className="pointer-events-none absolute -left-[12%] -top-[56%] h-[210%] w-[124%] overflow-visible"
