@@ -61,26 +61,28 @@ export function AlertSignup() {
       <div className="relative rounded-[28px] border border-white/12 bg-[rgba(16,18,28,.55)] px-[clamp(24px,4vw,56px)] pb-[clamp(36px,4vw,52px)] pt-[clamp(44px,5vw,64px)] shadow-[0_40px_90px_rgba(0,0,0,.55)] backdrop-blur-[18px]">
         {/* ── Gold ribbon banner ───────────────────────────────────── */}
         <div className="absolute left-1/2 top-0 flex -translate-x-1/2 -translate-y-1/2 items-center">
-          {/* left wing — darker gold, notched (V-cut) outer end, sits behind plate */}
+          {/* left wing — darker gold, notched (V-cut) outer end, sits behind plate.
+              Notch is a % so it scales with the responsive wing width below. */}
           <span
             aria-hidden="true"
-            className="h-[34px] w-[clamp(26px,4vw,46px)] bg-[linear-gradient(180deg,#e0ad48,#b9801f)] shadow-[0_6px_14px_rgba(0,0,0,.4)]"
+            className="h-[30px] w-[20px] bg-[linear-gradient(180deg,#e0ad48,#b9801f)] shadow-[0_6px_14px_rgba(0,0,0,.4)] sm:h-[34px] sm:w-[clamp(26px,4vw,46px)]"
             style={{
-              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%, 16px 50%)",
+              clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%, 38% 50%)",
             }}
           />
-          {/* center plate */}
-          <div className="relative z-[2] -mx-[6px] inline-flex items-center gap-2.5 rounded-[10px] border border-[#fff5d6]/60 bg-[linear-gradient(180deg,#ffe8a8_0%,#f3bc56_52%,#dd9730_100%)] px-[34px] py-[14px] font-oswald text-[clamp(12px,1.5vw,15px)] font-semibold uppercase tracking-[.22em] text-[#3a2607] shadow-[0_10px_24px_rgba(0,0,0,.45),inset_0_1px_0_rgba(255,255,255,.6)]">
-            <span className="size-[18px]">{TrophyIcon}</span>
+          {/* center plate — whitespace-nowrap keeps it one line; the smaller base
+              type/padding/tracking let that line fit the card on mobile, sm: restores desktop. */}
+          <div className="relative z-[2] -mx-[6px] inline-flex items-center gap-1.5 whitespace-nowrap rounded-[10px] border border-[#fff5d6]/60 bg-[linear-gradient(180deg,#ffe8a8_0%,#f3bc56_52%,#dd9730_100%)] px-[16px] py-[9px] font-oswald text-[9.5px] font-semibold uppercase tracking-[.1em] text-[#3a2607] shadow-[0_10px_24px_rgba(0,0,0,.45),inset_0_1px_0_rgba(255,255,255,.6)] sm:gap-2.5 sm:px-[34px] sm:py-[14px] sm:text-[clamp(12px,1.5vw,15px)] sm:tracking-[.22em]">
+            <span className="size-[13px] sm:size-[18px]">{TrophyIcon}</span>
             Win a prize every month
           </div>
           {/* right wing — mirror of the left */}
           <span
             aria-hidden="true"
-            className="h-[34px] w-[clamp(26px,4vw,46px)] bg-[linear-gradient(180deg,#e0ad48,#b9801f)] shadow-[0_6px_14px_rgba(0,0,0,.4)]"
+            className="h-[30px] w-[20px] bg-[linear-gradient(180deg,#e0ad48,#b9801f)] shadow-[0_6px_14px_rgba(0,0,0,.4)] sm:h-[34px] sm:w-[clamp(26px,4vw,46px)]"
             style={{
               clipPath:
-                "polygon(0 0, 100% 0, calc(100% - 16px) 50%, 100% 100%, 0 100%)",
+                "polygon(0 0, 100% 0, 62% 50%, 100% 100%, 0 100%)",
             }}
           />
         </div>

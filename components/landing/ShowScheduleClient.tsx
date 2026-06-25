@@ -79,7 +79,7 @@ export function ShowScheduleClient({ initial }: { initial: Slot[] }) {
             </div>
 
             {/* Body */}
-            <div className="flex min-w-0 flex-1 flex-col items-start gap-3 min-[560px]:flex-row min-[560px]:items-center min-[560px]:justify-between min-[560px]:gap-[14px]">
+            <div className="flex min-w-0 flex-1 flex-col items-stretch gap-3 min-[560px]:flex-row min-[560px]:items-center min-[560px]:justify-between min-[560px]:gap-[14px]">
               <div className="min-w-0">
                 <div className="flex items-center gap-2">
                   <span
@@ -88,7 +88,7 @@ export function ShowScheduleClient({ initial }: { initial: Slot[] }) {
                   >
                     {PILL_LABEL[slot.state]}
                   </span>
-                  <div className="truncate font-display text-[clamp(16px,2vw,22px)] tracking-[.02em] text-paper">
+                  <div className="min-w-0 flex-1 truncate font-display text-[clamp(16px,2vw,22px)] tracking-[.02em] text-paper">
                     {slot.title}
                   </div>
                 </div>
