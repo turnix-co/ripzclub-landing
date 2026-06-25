@@ -57,7 +57,7 @@ export function AlertSignup() {
     "mb-1.5 block font-oswald text-[11px] font-medium uppercase tracking-[.14em] text-paper/70";
 
   return (
-    <div className="relative z-[4] mt-[clamp(58px,9.5vh,104px)] w-full max-w-[1080px]">
+    <div className="relative z-[4] mt-[clamp(58px,7.5vh,90px)] w-full max-w-[1080px]">
       <div className="relative rounded-[28px] border border-white/12 bg-[rgba(16,18,28,.55)] px-[clamp(24px,4vw,56px)] pb-[clamp(36px,4vw,52px)] pt-[clamp(44px,5vw,64px)] shadow-[0_40px_90px_rgba(0,0,0,.55)] backdrop-blur-[18px]">
         {/* ── Gold ribbon banner ───────────────────────────────────── */}
         <div className="absolute left-1/2 top-0 flex -translate-x-1/2 -translate-y-1/2 items-center">
@@ -119,10 +119,10 @@ export function AlertSignup() {
             </div>
 
             <h3 className="mb-1.5 font-poppins text-[clamp(18px,2.2vw,23px)] font-bold text-paper">
-              Premium Mystery Box
+              Pitch Black Pokémon Center Elite Trainer Box
             </h3>
             <p className="mb-4 font-oswald text-[13px] tracking-[.06em] text-paper/60">
-              Sealed Booster Pack · Graded Hit Inside
+              Prize drawn July 31st
             </p>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-ripz/50 bg-ripz/[.16] px-3.5 py-[7px] font-oswald text-[11px] font-semibold uppercase tracking-[.18em] text-[#ff5c70]">
               <span className="size-1.5 rounded-full bg-[#ff5c70]" />
@@ -164,11 +164,12 @@ export function AlertSignup() {
             ) : (
               <form ref={formRef} onSubmit={submit} noValidate>
                 <h2 className="mb-2 font-poppins text-[clamp(24px,3vw,32px)] font-bold leading-[1.1] text-paper">
-                  Get drop alerts before every live.
+                  Join our community &amp; go in for the chance to win big
+                  prizes every month.
                 </h2>
                 <p className="mb-[22px] font-poppins text-sm text-paper/62">
-                  Join the list, lock your spot, and you&apos;re automatically
-                  in this month&apos;s prize draw.
+                  Get alerts every time a RIPZCLUB streamer goes live and go in
+                  for the chance to win a prize each month!
                 </p>
 
                 <div className="grid grid-cols-2 gap-3">
@@ -222,14 +223,26 @@ export function AlertSignup() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  <div className="relative">
-                    <span className="absolute left-[7px] top-1/2 flex size-[38px] -translate-y-1/2 items-center justify-center rounded-[9px] bg-[linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)]">
+                  {/* Instagram — handle input + follow button */}
+                  <div className="flex flex-col gap-2">
+                    <input
+                      name="instagram"
+                      placeholder="Instagram handle"
+                      aria-label="Instagram handle"
+                      className={fieldClass}
+                    />
+                    <a
+                      href="https://www.instagram.com/knixripz"
+                      target="_blank"
+                      rel="noopener"
+                      className="flex items-center justify-center gap-2 rounded-xl bg-[linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)] px-4 py-[13px] font-oswald text-[12.5px] font-semibold uppercase tracking-[.12em] text-white transition-opacity hover:opacity-90"
+                    >
                       <svg
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="#fff"
                         strokeWidth={2}
-                        className="size-5"
+                        className="size-[18px]"
                       >
                         <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
                         <circle cx="12" cy="12" r="4" />
@@ -241,26 +254,28 @@ export function AlertSignup() {
                           stroke="none"
                         />
                       </svg>
-                    </span>
-                    <input
-                      name="instagram"
-                      placeholder="Instagram handle"
-                      aria-label="Instagram handle"
-                      className={`${fieldClass} pl-[54px]`}
-                    />
+                      Follow
+                    </a>
                   </div>
-                  <div className="relative">
-                    <span className="absolute left-[7px] top-1/2 flex size-[38px] -translate-y-1/2 items-center justify-center rounded-[9px] bg-[#5865f2]">
-                      <svg viewBox="0 0 24 24" fill="#fff" className="size-5">
-                        <path d="M19.3 5.4A16 16 0 0 0 15.3 4l-.2.4a13 13 0 0 1 3.5 1.7 14 14 0 0 0-12.2 0A13 13 0 0 1 9.9 4.4L9.7 4a16 16 0 0 0-4 1.4C2.8 9.6 2 13.7 2.3 17.7a16 16 0 0 0 5 2.5l.6-1a10 10 0 0 1-1.7-.8l.4-.3a11 11 0 0 0 9.6 0l.4.3a10 10 0 0 1-1.7.8l.6 1a16 16 0 0 0 5-2.5c.4-4.7-.7-8.7-3.2-12.3ZM9 15.5c-.9 0-1.7-.9-1.7-1.9S8 11.7 9 11.7s1.7.9 1.7 1.9S9.9 15.5 9 15.5Zm6 0c-.9 0-1.7-.9-1.7-1.9s.8-1.9 1.7-1.9 1.7.9 1.7 1.9-.8 1.9-1.7 1.9Z" />
-                      </svg>
-                    </span>
+                  {/* Discord — username input + join button */}
+                  <div className="flex flex-col gap-2">
                     <input
                       name="discord"
                       placeholder="Discord username"
                       aria-label="Discord username"
-                      className={`${fieldClass} pl-[54px]`}
+                      className={fieldClass}
                     />
+                    <a
+                      href="https://discord.gg/W75rRdqCz4"
+                      target="_blank"
+                      rel="noopener"
+                      className="flex items-center justify-center gap-2 rounded-xl bg-[#5865f2] px-4 py-[13px] font-oswald text-[12.5px] font-semibold uppercase tracking-[.12em] text-white transition-opacity hover:opacity-90"
+                    >
+                      <svg viewBox="0 0 24 24" fill="#fff" className="size-[18px]">
+                        <path d="M19.3 5.4A16 16 0 0 0 15.3 4l-.2.4a13 13 0 0 1 3.5 1.7 14 14 0 0 0-12.2 0A13 13 0 0 1 9.9 4.4L9.7 4a16 16 0 0 0-4 1.4C2.8 9.6 2 13.7 2.3 17.7a16 16 0 0 0 5 2.5l.6-1a10 10 0 0 1-1.7-.8l.4-.3a11 11 0 0 0 9.6 0l.4.3a10 10 0 0 1-1.7.8l.6 1a16 16 0 0 0 5-2.5c.4-4.7-.7-8.7-3.2-12.3ZM9 15.5c-.9 0-1.7-.9-1.7-1.9S8 11.7 9 11.7s1.7.9 1.7 1.9S9.9 15.5 9 15.5Zm6 0c-.9 0-1.7-.9-1.7-1.9s.8-1.9 1.7-1.9 1.7.9 1.7 1.9-.8 1.9-1.7 1.9Z" />
+                      </svg>
+                      Join
+                    </a>
                   </div>
                 </div>
 

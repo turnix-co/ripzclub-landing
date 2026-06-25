@@ -45,7 +45,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "RipzClub Live — Every Pack. One Graded Hit.",
+  title: "RipzClub — Every Pack. One Graded Hit.",
   description: "Certified slabs. Instant reveals. RipzSafe 80% floor. Australia's premier trading card rip club.",
 }
 

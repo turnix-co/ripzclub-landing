@@ -54,7 +54,7 @@ export function ShowScheduleClient({ initial }: { initial: Slot[] }) {
   if (slots.length === 0) return null
 
   return (
-    <div className="mt-[clamp(30px,4.5vh,46px)] flex w-[min(700px,92vw)] flex-col gap-4">
+    <div className="mt-[clamp(30px,4.5vh,46px)] flex w-full max-w-[1080px] flex-col gap-4">
       {slots.map((slot) => {
         const meta = STATE_META[slot.state]
         const tone = TONE[meta.tone]
