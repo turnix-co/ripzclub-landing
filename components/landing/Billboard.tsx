@@ -1,4 +1,5 @@
 import { Wordmark } from "./Wordmark"
+import { StreamerLineup } from "./StreamerLineup"
 import { ShowSchedule } from "./ShowSchedule"
 import { DiscordBanner } from "./DiscordBanner"
 import { AlertSignup } from "./AlertSignup"
@@ -96,44 +97,8 @@ export function Billboard() {
       {/* ── Wordmark ──────────────────────────────────────────────────── */}
       <Wordmark variant="hero" />
 
-      {/* ── Featuring + subline ───────────────────────────────────────── */}
-      <div className="relative z-[4] mt-[clamp(14px,2.5vh,26px)] max-w-[92vw] text-center">
-        {/* — FEATURING — small label with flanker dashes */}
-        <div className="flex items-center justify-center gap-3 font-grotesk text-[clamp(.62rem,1.2vw,.82rem)] uppercase tracking-[.34em] text-paper/55">
-          <span aria-hidden className="h-px w-[clamp(20px,3vw,36px)] bg-[linear-gradient(90deg,transparent,#FFB23E)]" />
-          Featuring
-          <span aria-hidden className="h-px w-[clamp(20px,3vw,36px)] bg-[linear-gradient(90deg,#FFB23E,transparent)]" />
-        </div>
-        {/* KNIXRIPZ — big gold block letters */}
-        <div
-          className="mt-[clamp(8px,1.6vh,16px)] inline-block font-display text-[clamp(40px,7vw,84px)] leading-[.9] tracking-[.02em]"
-          style={{
-            transform: "skewX(-6deg)",
-            filter: "drop-shadow(0 3px 0 rgba(40,18,2,.5)) drop-shadow(0 9px 14px rgba(0,0,0,.3))",
-          }}
-        >
-          <span
-            style={{
-              display: "inline-block",
-              lineHeight: 1,
-              backgroundImage: "linear-gradient(180deg,#FFE49A 0%,#FFB23E 40%,#F0631A 70%,#BE410B 100%)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              color: "transparent",
-              WebkitTextStroke: "clamp(1.3px,.26vw,3px) #2A1402",
-              paintOrder: "stroke fill",
-              WebkitBoxDecorationBreak: "clone",
-              boxDecorationBreak: "clone",
-            }}
-          >
-            KNIXRIPZ
-          </span>
-        </div>
-        <div className="mt-[clamp(18px,3vh,28px)] font-grotesk text-[clamp(.6rem,1.1vw,.72rem)] uppercase tracking-[.22em] text-paper/62">
-          The best streamers bringing live streams to you every day!
-        </div>
-      </div>
+      {/* ── Featuring the crew (streamer line-up) ─────────────────────── */}
+      <StreamerLineup />
 
       {/* ── Win a prize / drop-alert signup ───────────────────────────── */}
       <AlertSignup />
