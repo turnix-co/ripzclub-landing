@@ -3,6 +3,12 @@ import { JSDOM } from "jsdom"
 const SELLER_URL =
   "https://www.ebay.com.au/ebaylive/sellers/uyrpxfoktc2"
 
+const eventUrl = (id: string) => `https://www.ebay.com.au/ebaylive/events/${id}`
+
+// eBay 403s the default jsdom/node UA; use a real browser string.
+const BROWSER_UA =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+
 export type SlotState = "live" | "replay" | "upcoming"
 
 export type Slot = {
@@ -16,6 +22,8 @@ export type Slot = {
   href: string
   /** Thumbnail image. */
   image: string | null
+  /** Event blurb. Only the single-event fetch has this; seller tiles don't. */
+  description: string | null
 }
 
 const STATE_MAP: Record<string, SlotState> = {
@@ -74,19 +82,65 @@ export function parseSlots(html: string, limit = 4): Slot[] {
       viewers,
       href: link?.href ?? SELLER_URL,
       image: img?.getAttribute("src") ?? null,
+      description: null,
     }
   })
 }
 
 /** Fetch the live seller page and return its top slots. */
 export async function fetchSlots(limit = 4): Promise<Slot[]> {
-  const res = await fetch(SELLER_URL, {
-    headers: {
-      // eBay 403s the default jsdom/node UA; use a real browser string.
-      "user-agent":
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-    },
-  })
+  const res = await fetch(SELLER_URL, { headers: { "user-agent": BROWSER_UA } })
   if (!res.ok) throw new Error(`eBay Live fetch failed: ${res.status}`)
   return parseSlots(await res.text(), limit)
+}
+
+function unescapeJson(raw: string): string {
+  try {
+    return JSON.parse(`"${raw}"`)
+  } catch {
+    return raw
+  }
+}
+
+// An eBay Live *event* page embeds its data in a normalised JSON store as a
+// `"LiveEvent:<id>":{…}` record (title/state/startTime/description/previewImage)
+// plus `"Image:<ref>":{…"url":…}` records. We slice out the one record by id and
+// pull its fields by regex — same throwaway-parser approach as the seller island.
+export function parseEvent(html: string, eventId: string): Slot | null {
+  const at = html.indexOf(`"LiveEvent:${eventId}":{`)
+  if (at < 0) return null
+  const rec = html.slice(at, at + 2000)
+
+  const field = (name: string): string | null => {
+    const m = rec.match(new RegExp(`"${name}":"((?:[^"\\\\]|\\\\.)*)"`))
+    return m ? unescapeJson(m[1]) : null
+  }
+
+  const rawState = rec.match(/"state":"([A-Z]+)"/)?.[1] ?? ""
+  const watched = rec.match(/"watchedCount":(\d+)/)?.[1]
+
+  // previewImage is a ref into a separate "Image:<id>" record; resolve its url.
+  let image: string | null = null
+  const ref = rec.match(/"previewImage":\{"__ref":"(Image:[^"]+)"\}/)?.[1]
+  if (ref) {
+    const esc = ref.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+    image = html.match(new RegExp(`"${esc}":\\{[^}]*?"url":"([^"]+)"`))?.[1] ?? null
+  }
+
+  return {
+    title: field("title") || "Untitled stream",
+    state: STATE_MAP[rawState] ?? "replay",
+    startTime: field("startTime"),
+    viewers: watched ? Number(watched) : null,
+    href: eventUrl(eventId),
+    image,
+    description: field("description"),
+  }
+}
+
+/** Fetch a single eBay Live event page directly and return it as a Slot. */
+export async function fetchEvent(eventId: string): Promise<Slot | null> {
+  const res = await fetch(eventUrl(eventId), { headers: { "user-agent": BROWSER_UA } })
+  if (!res.ok) return null
+  return parseEvent(await res.text(), eventId)
 }

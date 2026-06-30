@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { EbayWordmark } from "./EbayWordmark";
 
 /**
  * "Win a prize every month" giveaway card: a gold-ribbon glass card split into
@@ -278,6 +279,18 @@ export function AlertSignup() {
                     </a>
                   </div>
                 </div>
+
+                {/* Follow us on eBay — full-width, under the IG + Discord buttons */}
+                <a
+                  href="https://www.ebay.com.au/ebaylive/sellers/uyrpxfoktc2"
+                  target="_blank"
+                  rel="noopener"
+                  className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl border border-black/10 bg-white px-4 py-[13px] font-oswald text-[12.5px] font-semibold uppercase tracking-[.12em] text-ink shadow-[0_8px_22px_rgba(0,0,0,.35)] transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  Follow us on
+                  <EbayWordmark className="text-[16px] normal-case tracking-normal" />
+                  now
+                </a>
 
                 {/* GET ALERTS button with red offset shadow + WIN MONTHLY badge */}
                 <div className="relative mx-auto mt-[26px] w-[min(320px,100%)]">
